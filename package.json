@@ -1,0 +1,46 @@
+{
+  "name": "generator-springframework",
+  "version": "0.1.0",
+  "description": "A generator for Spring Boot",
+  "homepage": "https://github.com/utnas/generator-springframework",
+  "bugs": "https://github.com/utnas/generator-springframework/issues",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "app",
+    "router"
+  ],
+  "author": {
+    "name": "Dooley Nsewolo",
+    "email": "nsewolo@gmail.com",
+    "url": "https://github.com/utnas"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/utnas/generator-springframework.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "chalk": "~0.2.0",
+    "yeoman-generator": "^0.17.7"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0-rc.1"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
