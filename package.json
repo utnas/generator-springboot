@@ -1,9 +1,9 @@
 {
-  "name": "generator-springframework",
+  "name": "generator-springboot",
   "version": "0.1.0",
   "description": "A generator for Spring Boot",
-  "homepage": "https://github.com/utnas/generator-springframework",
-  "bugs": "https://github.com/utnas/generator-springframework/issues",
+  "homepage": "https://github.com/utnas/generator-springboot",
+  "bugs": "https://github.com/utnas/generator-springboot/issues",
   "keywords": [
     "yeoman-generator"
   ],
@@ -19,7 +19,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/utnas/generator-springframework.git"
+    "url": "git://github.com/utnas/generator-springboot.git"
   },
   "scripts": {
     "test": "mocha"
