@@ -16,7 +16,7 @@
     SpringBootGenerator.prototype.askFor = function () {
         var waitCallback = this.async();
 
-        console.log(chalk.green(yosay('\nWelcome to the Java Spring Boot Generator\n\n')));
+        console.log(yosay('\nWelcome to the Java Spring Boot Generator\n\n'));
         var prompts = [
             {
                 type: 'string',
@@ -109,7 +109,7 @@
             this.starters = props.starters;
 
             var hasStarter = function (starter) {
-                return props.starters.indexOf(starter) !== -1;
+                return props.starters ? props.starters.indexOf(starter) !== -1 : true;
             };
             this.jetty = hasStarter('jetty');
             this.actuator = hasStarter('actuator');
