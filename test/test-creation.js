@@ -5,13 +5,14 @@
         helpers = require('yeoman-generator').test;
 
     describe('spring boot generator', function () {
+
         beforeEach(function (done) {
             helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
                 if (err) {
                     return done(err);
                 }
 
-                this.app = helpers.createGenerator('spring:app', [
+                this.app = helpers.createGenerator('springboot:app', [
                     '../../app'
                 ]);
                 done();
@@ -27,7 +28,7 @@
             helpers.mockPrompt(this.app, {
                 'packageName': 'com.testme.testme',
                 'baseName': 'myapp',
-                'bootVersion': '0.5.0.M4'
+                'bootVersion': '1.3.0.SNAPSHOT'
             });
             this.app.options['skip-install'] = true;
             this.app.run({}, function () {

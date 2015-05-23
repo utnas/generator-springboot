@@ -4,7 +4,8 @@
     var util = require('util'),
         path = require('path'),
         yeoman = require('yeoman-generator'),
-        chalk = require('chalk');
+        chalk = require('chalk'),
+        yosay = require('yosay');
 
     var SpringBootGenerator = module.exports = function () {
         yeoman.generators.Base.apply(this, arguments);
@@ -15,14 +16,13 @@
     SpringBootGenerator.prototype.askFor = function () {
         var waitCallback = this.async();
 
-        logSpringBootIcon();
-
+        console.log(chalk.green(yosay('\nWelcome to the Java Spring Boot Generator\n\n')));
         var prompts = [
             {
                 type: 'string',
                 name: 'bootVersion',
                 message: '(1/6) What version of Spring Boot would you like to use?',
-                default: '0.5.0.M5'
+                default: '1.3.0.SNAPSHOT'
             },
             {
                 type: 'string',
@@ -150,9 +150,4 @@
 
     };
 
-    function logSpringBootIcon() {
-        console.log(
-            chalk.green('\n.............DD88888888888888888,............\n' +
-                chalk.red('\nWelcome to the Spring Boot Generator\n\n')));
-    }
 })();
