@@ -6,13 +6,13 @@
         yeoman = require('yeoman-generator'),
         chalk = require('chalk');
 
-    var SpringFrameworkGenerator = module.exports = function () {
+    var SpringBootGenerator = module.exports = function () {
         yeoman.generators.Base.apply(this, arguments);
     };
 
-    util.inherits(SpringFrameworkGenerator, yeoman.generators.Base);
+    util.inherits(SpringBootGenerator, yeoman.generators.Base);
 
-    SpringFrameworkGenerator.prototype.askFor = function () {
+    SpringBootGenerator.prototype.askFor = function () {
         var waitCallback = this.async();
 
         logSpringBootIcon();
@@ -126,6 +126,28 @@
             waitCallback();
 
         }.bind(this));
+    };
+
+    SpringBootGenerator.prototype.app = function app() {
+
+        var packageFolder = this.packageName.replace(/\./g, '/'),
+            srcDir = 'src/main/java/' + packageFolder;
+
+        this.mkdir(srcDir);
+        this.template('build.gradle', 'build.gradle');
+        this.template('Application.java', srcDir + '/Application.java');
+
+        if (this.useSpock) {
+            var testDir = 'src/test/groovy/' + packageFolder;
+            this.mkdir(testDir);
+        }
+
+        this.config.set('packageName', this.packageName);
+        this.config.set('packageFolder', packageFolder);
+    };
+
+    SpringBootGenerator.prototype.projectfiles = function projectfiles() {
+
     };
 
     function logSpringBootIcon() {
