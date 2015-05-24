@@ -22,7 +22,7 @@
                 type: 'string',
                 name: 'bootVersion',
                 message: '(1/6) What version of Spring Boot would you like to use?',
-                default: '1.3.0.SNAPSHOT'
+                default: '1.3.0.BUILD-SNAPSHOT'
             },
             {
                 type: 'string',

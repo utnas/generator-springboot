@@ -19,20 +19,28 @@
             }.bind(this));
         });
 
-        it('creates expected files', function (done) {
-            var expected = [
-                // add files you expect to exist here.
-                'build.gradle'
-            ];
-
+        it('creates expected gradle file', function (done) {
             helpers.mockPrompt(this.app, {
-                'packageName': 'com.testme.testme',
+                'packageName': 'com.testme',
                 'baseName': 'myapp',
                 'bootVersion': '1.3.0.SNAPSHOT'
             });
             this.app.options['skip-install'] = true;
             this.app.run({}, function () {
-                helpers.assertFiles(expected);
+                helpers.assertFiles(['build.gradle']);
+                done();
+            });
+        });
+
+        it('creates expected java file', function (done) {
+            helpers.mockPrompt(this.app, {
+                'packageName': 'com.testme',
+                'baseName': 'myapp',
+                'bootVersion': '1.3.0.SNAPSHOT'
+            });
+            this.app.options['skip-install'] = true;
+            this.app.run({}, function () {
+                helpers.assertFiles(['src/main/java/com/testme/Application.java']);
                 done();
             });
         });
