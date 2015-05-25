@@ -32,7 +32,7 @@
             },
             {
                 type: 'string',
-                name: 'baseName',
+                name: 'applicationName',
                 message: '(3/6) What is the base name of app?',
                 default: 'app'
             },
@@ -102,7 +102,7 @@
 
         this.prompt(prompts, function (props) {
             this.packageName = props.packageName;
-            this.baseName = props.baseName;
+            this.applicationName = props.applicationName;
             this.useWrapper = props.useWrapper;
             this.bootVersion = props.bootVersion;
             this.useSpock = props.useSpock;

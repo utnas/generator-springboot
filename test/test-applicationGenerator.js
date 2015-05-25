@@ -22,7 +22,7 @@
         it('should create application.java file', function (done) {
             helpers.mockPrompt(this.app, {
                 'packageName': 'com.testme',
-                'baseName': 'myapp',
+                'applicationName': 'myapp',
                 'bootVersion': '1.3.0.SNAPSHOT'
             });
             this.app.options['skip-install'] = true;
