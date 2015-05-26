@@ -256,9 +256,17 @@
             facade = '/facade',
             rest = '/rest';
 
-        createPackage(this, testJavaDir, [rest, business, facade]);
-        createPackage(this, srcDir, [rest, business, facade]);
-        createPackage(this, integrationJavaDir, [rest, facade]);
+        this.mkdir(testJavaDir + business);
+        this.mkdir(testJavaDir + rest);
+        this.mkdir(testJavaDir + facade);
+
+        this.mkdir(srcDir + business);
+        this.mkdir(srcDir + rest);
+        this.mkdir(srcDir + facade);
+
+        // Create templates
+        this.mkdir(integrationJavaDir + rest);
+        this.mkdir(integrationJavaDir + facade);
 
         this.template('build.gradle', 'build.gradle');
         this.template('Application.java', srcDir + '/Application.java');
@@ -268,8 +276,13 @@
             var testGroovyDir = 'src/test/groovy/' + packageFolder,
                 integrationGroovyDir = 'src/integration/groovy/' + packageFolder;
 
-            createPackage(this, testGroovyDir, [business, rest, facade]);
-            createPackage(this, integrationGroovyDir, [business, rest, facade]);
+            this.mkdir(testGroovyDir + business);
+            this.mkdir(testGroovyDir + rest);
+            this.mkdir(testGroovyDir + facade);
+
+            this.mkdir(integrationGroovyDir + business);
+            this.mkdir(integrationGroovyDir + rest);
+            this.mkdir(integrationGroovyDir + facade);
         }
 
         this.config.set('packageName', this.packageName);
@@ -281,8 +294,7 @@
     };
 
     var createPackage = function (builder, basePackage, packages) {
-        var i = 0;
-        for (i; i < packages.length; i++) {
+        for(; i < packages.length; i++){
             builder.mkdir(packages[i]);
         }
     }
