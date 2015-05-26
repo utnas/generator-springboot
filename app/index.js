@@ -120,38 +120,56 @@
                         name: 'Elasticsearch',
                         value: 'elasticsearch'
                     },
-                    // Cloud
+                    // Database
                     {
-                        name: 'JPA',
-                        value: 'jpa'
+                        name: 'H2',
+                        value: 'h2'
                     },
                     {
-                        name: 'MongoDB',
-                        value: 'mongodb'
+                        name: 'HSQLDB',
+                        value: 'hsqldb'
                     },
                     {
-                        name: 'JDBC',
-                        value: 'jdbc'
+                        name: 'Apache Derby',
+                        value: 'derby'
                     },
                     {
-                        name: 'JPA',
-                        value: 'jpa'
+                        name: 'MySQL',
+                        value: 'mysql'
                     },
                     {
-                        name: 'MongoDB',
-                        value: 'mongodb'
+                        name: 'PostgreSQL',
+                        value: 'postgresql'
+                    },
+                    // IO
+                    {
+                        name: 'Batch',
+                        value: 'batch'
                     },
                     {
-                        name: 'JDBC',
-                        value: 'jdbc'
+                        name: 'Integration',
+                        value: 'integration'
                     },
                     {
-                        name: 'JPA',
-                        value: 'jpa'
+                        name: 'JMS',
+                        value: 'jms'
                     },
                     {
-                        name: 'MongoDB',
-                        value: 'mongodb'
+                        name: 'AMQP',
+                        value: 'amqp'
+                    },
+                    {
+                        name: 'Mail',
+                        value: 'mail'
+                    },
+                    // Ops
+                    {
+                        name: 'Actuator',
+                        value: 'actuator'
+                    },
+                    {
+                        name: 'Remote Shell',
+                        value: 'remoteshell'
                     }
                 ]
             }, {
@@ -207,16 +225,23 @@
             this.solr = hasStarter('solr');
             this.elasticsearch = hasStarter('elasticsearch');
 
-            // Cloud
-            this.logging = hasStarter('logging');
-            this.security = hasStarter('security');
-            this.websocket = hasStarter('websocket');
-            this.logging = hasStarter('logging');
-            this.security = hasStarter('security');
-            this.websocket = hasStarter('websocket');
-            this.logging = hasStarter('logging');
-            this.security = hasStarter('security');
-            this.websocket = hasStarter('websocket');
+            // Database
+            //this.h2 = hasStarter('h2');
+            this.hsqldb = hasStarter('hsqldb');
+            this.derby = hasStarter('derby');
+            this.mysql = hasStarter('mysql');
+            this.postgresql = hasStarter('postgresql');
+
+            // I/O
+            this.batch = hasStarter('batch');
+            this.integration = hasStarter('integration');
+            //this.jms = hasStarter('jms');
+            this.amqp = hasStarter('amqp');
+            this.mail = hasStarter('mail');
+
+            // Ops
+            this.actuator = hasStarter('actuator');
+            this.remoteshell = hasStarter('remoteshell');
 
             waitCallback();
 
