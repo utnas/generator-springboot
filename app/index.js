@@ -251,23 +251,25 @@
         var packageFolder = this.packageName.replace(/\./g, '/'),
             srcDir = 'src/main/java/' + packageFolder,
             testJavaDir = 'src/test/java/' + packageFolder,
-            integrationJavaDir = 'src/integration/java/' + packageFolder;
+            integrationJavaDir = 'src/integration/java/' + packageFolder,
+            business = '/business',
+            facade = '/facade',
+            rest = '/rest';
 
-        // Create dirs
-        this.mkdir(srcDir);
-        this.mkdir(testJavaDir);
-        this.mkdir(integrationJavaDir);
+        createPackage(this, testJavaDir, [rest, business, facade]);
+        createPackage(this, srcDir, [rest, business, facade]);
+        createPackage(this, integrationJavaDir, [rest, facade]);
 
-        // Create templates
         this.template('build.gradle', 'build.gradle');
         this.template('Application.java', srcDir + '/Application.java');
 
         // Create groovy resources
         if (this.useSpock) {
-            var testDir = 'src/test/groovy/' + packageFolder,
+            var testGroovyDir = 'src/test/groovy/' + packageFolder,
                 integrationGroovyDir = 'src/integration/groovy/' + packageFolder;
-            this.mkdir(testDir);
-            this.mkdir(integrationGroovyDir);
+
+            createPackage(this, testGroovyDir, [business, rest, facade]);
+            createPackage(this, integrationGroovyDir, [business, rest, facade]);
         }
 
         this.config.set('packageName', this.packageName);
@@ -277,5 +279,12 @@
     SpringBootGenerator.prototype.projectfiles = function projectfiles() {
 
     };
+
+    var createPackage = function (builder, basePackage, packages) {
+        var i = 0;
+        for (i; i < packages.length; i++) {
+            builder.mkdir(packages[i]);
+        }
+    }
 
 })();
