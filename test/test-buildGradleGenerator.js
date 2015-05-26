@@ -2,6 +2,7 @@
     'use strict';
 
     var path = require('path'),
+        fs = require('fs'),
         helpers = require('yeoman-generator').test;
 
     describe('spring boot build.gradle generator', function () {
@@ -28,9 +29,18 @@
             this.app.options['skip-install'] = true;
             this.app.run({}, function () {
                 helpers.assertFiles(['build.gradle']);
+                var content = '';
+                fs.readFile('build.gradle', function (err, data) {
+                    if (err) throw err;
+                    console.log('Reading file');
+                    console.log(data);
+                    content = data;
+                });
+                console.log(content);
                 done();
             });
         });
+
     });
 
 })();

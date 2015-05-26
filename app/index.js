@@ -38,6 +38,30 @@
             },
             {
                 type: 'checkbox',
+                name: 'core',
+                message: '(4/6)Project dependencies spring Core',
+                bloc: 'starter',
+                choices: [
+                    {
+                        name: 'Security',
+                        value: 'security'
+                    },
+                    {
+                        name: 'AOP',
+                        value: 'aop'
+                    },
+                    {
+                        name: 'Atomikos (JTA)',
+                        value: 'atomikos'
+                    },
+                    {
+                        name: 'Bitronix (JTA)',
+                        value: 'bitronix'
+                    }
+                ]
+            },
+            {
+                type: 'checkbox',
                 name: 'starters',
                 message: '(4/6) select your starters',
                 choices: [
@@ -106,11 +130,25 @@
             this.useWrapper = props.useWrapper;
             this.bootVersion = props.bootVersion;
             this.useSpock = props.useSpock;
-            this.starters = props.starters;
+
+            // here spring dependencies
+            this.core = props.core;
 
             var hasStarter = function (starter) {
-                return props.starters ? props.starters.indexOf(starter) !== -1 : true;
+                return props.starters ? props.starters.indexOf(starter) !== -1 : false;
             };
+            var isInStarterBloc = function (starter) {
+                return props.bloc ? props.bloc.indexOf(starter) !== -1 : false;
+            };
+
+            // Core options
+            this.security = isInStarterBloc('security');
+            this.aop = isInStarterBloc('aop');
+            this.atomikos = isInStarterBloc('atomikos');
+            this.bitronix = isInStarterBloc('bitronix');
+
+            // Spring Starter
+            this.starters = props.starters;
             this.jetty = hasStarter('jetty');
             this.actuator = hasStarter('actuator');
             this.aop = hasStarter('aop');

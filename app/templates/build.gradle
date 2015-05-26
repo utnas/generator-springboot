@@ -39,12 +39,33 @@ repositories {
 }
 
 dependencies {
+
     compile('com.google.guava:guava')
+
+    # Core dependencies
+    <%if (security){%>
+        compile('org.springframework.boot:spring-boot-starter-security')
+    <%}%>
+     <%if (aop){%>
+        compile('org.springframework.boot:spring-boot-starter-aop')
+    <%}%>
+    <%if (atomikos){%>
+        compile('org.springframework.boot:spring-boot-starter-jta-atomikos')
+    <%}%>
+    <%if (bitronix){%>
+        compile('org.springframework.boot:spring-boot-starter-jta-bitronix')
+    <%}%>
+
+     # Web dependencies
+
+
+    #########################
+    ##Old de
+
     compile('org.springframework.boot:spring-boot-starter-web') <% if (jetty) {%>
-        {
+    {
             exclude module: 'spring-boot-starter-tomcat'
-        }
-        compile('org.springframework.boot:spring-boot-starter-jetty')
+    }
     <%
     } %>
     <% if (actuator) {%>
