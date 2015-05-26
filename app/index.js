@@ -39,7 +39,7 @@
             {
                 type: 'checkbox',
                 name: 'starters',
-                message: '(4/6) select your (4/6)Project dependencies',
+                message: '(4/6) select your (4/6) Core project dependencies',
                 choices: [
                     // Core
                     {
@@ -192,8 +192,6 @@
             this.useWrapper = props.useWrapper;
             this.bootVersion = props.bootVersion;
             this.useSpock = props.useSpock;
-
-            // here spring dependencies
             this.starters = props.starters;
 
             var hasStarter = function (starter) {
@@ -251,15 +249,25 @@
     SpringBootGenerator.prototype.app = function app() {
 
         var packageFolder = this.packageName.replace(/\./g, '/'),
-            srcDir = 'src/main/java/' + packageFolder;
+            srcDir = 'src/main/java/' + packageFolder,
+            testJavaDir = 'src/test/java/' + packageFolder,
+            integrationJavaDir = 'src/integration/java/' + packageFolder;
 
+        // Create dirs
         this.mkdir(srcDir);
+        this.mkdir(testJavaDir);
+        this.mkdir(integrationJavaDir);
+
+        // Create templates
         this.template('build.gradle', 'build.gradle');
         this.template('Application.java', srcDir + '/Application.java');
 
+        // Create groovy resources
         if (this.useSpock) {
-            var testDir = 'src/test/groovy/' + packageFolder;
+            var testDir = 'src/test/groovy/' + packageFolder,
+                integrationGroovyDir = 'src/integration/groovy/' + packageFolder;
             this.mkdir(testDir);
+            this.mkdir(integrationGroovyDir);
         }
 
         this.config.set('packageName', this.packageName);
