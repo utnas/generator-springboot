@@ -93,16 +93,65 @@
                     },
                     // Data
                     {
-                        name: 'Logging',
-                        value: 'logging'
+                        name: 'JDBC',
+                        value: 'jdbc'
                     },
                     {
-                        name: 'Security',
-                        value: 'security'
+                        name: 'JPA',
+                        value: 'jpa'
                     },
                     {
-                        name: 'Websocket',
-                        value: 'websocket'
+                        name: 'MongoDB',
+                        value: 'mongodb'
+                    },
+                    {
+                        name: 'Redis',
+                        value: 'redis'
+                    },
+                    {
+                        name: 'Gemfire',
+                        value: 'gemfire'
+                    },
+                    {
+                        name: 'Solr',
+                        value: 'solr'
+                    },
+                    {
+                        name: 'Elasticsearch',
+                        value: 'elasticsearch'
+                    },
+                    // Cloud
+                    {
+                        name: 'JPA',
+                        value: 'jpa'
+                    },
+                    {
+                        name: 'MongoDB',
+                        value: 'mongodb'
+                    },
+                    {
+                        name: 'JDBC',
+                        value: 'jdbc'
+                    },
+                    {
+                        name: 'JPA',
+                        value: 'jpa'
+                    },
+                    {
+                        name: 'MongoDB',
+                        value: 'mongodb'
+                    },
+                    {
+                        name: 'JDBC',
+                        value: 'jdbc'
+                    },
+                    {
+                        name: 'JPA',
+                        value: 'jpa'
+                    },
+                    {
+                        name: 'MongoDB',
+                        value: 'mongodb'
                     }
                 ]
             }, {
@@ -149,6 +198,22 @@
             this.hateoas = hasStarter('hateoas');
             this.mobile = hasStarter('mobile');
 
+            // Data
+            this.jdbc = hasStarter('jdbc');
+            this.jpa = hasStarter('jpa');
+            this.mongodb = hasStarter('mongodb');
+            this.redis = hasStarter('redis');
+            this.gemfire = hasStarter('gemfire');
+            this.solr = hasStarter('solr');
+            this.elasticsearch = hasStarter('elasticsearch');
+
+            // Cloud
+            this.logging = hasStarter('logging');
+            this.security = hasStarter('security');
+            this.websocket = hasStarter('websocket');
+            this.logging = hasStarter('logging');
+            this.security = hasStarter('security');
+            this.websocket = hasStarter('websocket');
             this.logging = hasStarter('logging');
             this.security = hasStarter('security');
             this.websocket = hasStarter('websocket');

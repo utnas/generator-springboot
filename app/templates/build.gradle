@@ -67,6 +67,20 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-mobile") <%}%>
 
     // Data
+    <%if (jdbc){%>
+    compile("org.springframework.boot:spring-boot-starter-jdbc") <%}%>
+    <%if (jpa){%>
+    compile("org.springframework.boot:spring-boot-starter-data-jpa") <%}%>
+    <%if (mongodb){%>
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb") <%}%>
+    <%if (redis){%>
+    compile("org.springframework.boot:spring-boot-starter-redis") <%}%>
+    <%if (gemfire){%>
+    compile("org.springframework.boot:spring-boot-starter-data-gemfire") <%}%>
+    <%if (solr){%>
+    compile("org.springframework.boot:spring-boot-starter-data-solr") <%}%>
+    <%if (elasticsearch){%>
+    compile("org.springframework.boot:spring-boot-starter-data-elasticsearch") <%}%>
 
     <% if (useSpock) {%>
         testCompile('org.codehaus.groovy:groovy-all')
