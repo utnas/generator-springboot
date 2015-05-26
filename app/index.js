@@ -60,37 +60,38 @@
                     },
                     // Web
                     {
-                        name: 'Jetty (Tomcat will be uninstalled)',
-                        value: 'jetty'
+                        name: 'Web',
+                        value: 'web'
                     },
                     {
-                        name: 'Actuator',
-                        value: 'actuator'
+                        name: 'Websocket',
+                        value: 'websocket'
                     },
                     {
-                        name: 'Aop',
-                        value: 'aop'
+                        name: 'Ws',
+                        value: 'ws'
                     },
                     {
-                        name: 'Batch',
-                        value: 'batch'
+                        name: 'Jersey (JAX-RS)',
+                        value: 'jersey'
                     },
                     {
-                        name: 'Data-jpa',
-                        value: 'jpa'
+                        name: 'Vaadin',
+                        value: 'vaadin'
                     },
                     {
-                        name: 'Integration',
-                        value: 'integration'
+                        name: 'Rest Repositories',
+                        value: 'rest'
                     },
                     {
-                        name: 'Hateoas',
+                        name: 'HATEOAS',
                         value: 'hateoas'
                     },
                     {
-                        name: 'Jdbc',
-                        value: 'jdbc'
+                        name: 'Mobile',
+                        value: 'mobile'
                     },
+                    // Data
                     {
                         name: 'Logging',
                         value: 'logging'
@@ -132,20 +133,22 @@
                 return props.starters ? props.starters.indexOf(starter) !== -1 : true;
             };
 
-            // Core options
+            // Core
             this.security = hasStarter('security');
             this.aop = hasStarter('aop');
             this.atomikos = hasStarter('atomikos');
-
             this.bitronix = hasStarter('bitronix');
-            this.jetty = hasStarter('jetty');
-            this.actuator = hasStarter('actuator');
-            this.aop = hasStarter('aop');
-            this.batch = hasStarter('batch');
+
+            // Web
+            this.web = hasStarter('web');
+            this.websocket = hasStarter('websocket');
+            this.ws = hasStarter('ws');
+            this.jersey = hasStarter('jersey');
+            this.vaadin = hasStarter('vaadin');
+            this.rest = hasStarter('rest');
             this.hateoas = hasStarter('hateoas');
-            this.jpa = hasStarter('jpa');
-            this.integration = hasStarter('integration');
-            this.jdbc = hasStarter('jdbc');
+            this.mobile = hasStarter('mobile');
+
             this.logging = hasStarter('logging');
             this.security = hasStarter('security');
             this.websocket = hasStarter('websocket');

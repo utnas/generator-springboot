@@ -1,6 +1,5 @@
 buildscript {
     ext {
-
     }
     repositories {
         mavenCentral()
@@ -36,7 +35,10 @@ repositories {
 }
 
 dependencies {
+    // Google guava
     compile('com.google.guava:guava')
+
+    // Spring Core
     <%if (security){%>
     compile('org.springframework.boot:spring-boot-starter-security') <%}%>
      <%if (aop){%>
@@ -45,28 +47,27 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-jta-atomikos') <%}%>
     <%if (bitronix){%>
     compile('org.springframework.boot:spring-boot-starter-jta-bitronix') <%}%>
-    compile('org.springframework.boot:spring-boot-starter-web') <% if (jetty) {%>{
-        exclude module: 'spring-boot-starter-tomcat'
-    } <%} %>
-    <% if (actuator) {%>
-    compile('org.springframework.boot:spring-boot-starter-actuator') <%}%>
-    <% if (batch) {%>
-        compile('org.springframework.boot:spring-boot-starter-batch') <%} %>
-    <% if (jdbc) {%>
-        compile('org.springframework.boot:spring-boot-starter-jdbc') <%} %>
-    <% if (jpa) {
-        %> compile('org.springframework.boot:spring-boot-starter-data-jpa') <%} %>
-    <% if (hateoas) {%>
-        compile('com.fasterxml.jackson.core:jackson-databind')
-        compile('org.springframework.hateoas:spring-hateoas') <% } %>
-    <% if (integration) {%>
-        compile('org.springframework.boot:spring-boot-starter-integration') <% } %>
-    <% if (logging) {%>
-        compile('org.springframework.boot:spring-boot-starter-logging') <% } %>
-    <% if (security) {
-        %> compile('org.springframework.boot:spring-boot-starter-security') <% } %>
-    <% if (websocket) {%>
-        compile('org.springframework.boot:spring-boot-starter-websocket') <% } %>
+
+    // Spring Web
+    <%if (web){%>
+    compile("org.springframework.boot:spring-boot-starter-web") <%}%>
+    <%if (websocket){%>
+    compile("org.springframework.boot:spring-boot-starter-websocket") <%}%>
+    <%if (ws){%>
+    compile("org.springframework.boot:spring-boot-starter-ws") <%}%>
+    <%if (jersey){%>
+    compile("org.springframework.boot:spring-boot-starter-jersey") <%}%>
+    <%if (vaadin){%>
+    compile("com.vaadin:vaadin-spring-boot-starter:1.0.0.beta3") <%}%>
+    <%if (rest){%>
+    compile("org.springframework.boot:spring-boot-starter-data-rest") <%}%>
+    <%if (hateoas){%>
+    compile("org.springframework.boot:spring-boot-starter-hateoas") <%}%>
+    <%if (mobile){%>
+    compile("org.springframework.boot:spring-boot-starter-mobile") <%}%>
+
+    // Data
+
     <% if (useSpock) {%>
         testCompile('org.codehaus.groovy:groovy-all')
         testCompile('org.spockframework:spock-core') <% } %>
