@@ -38,10 +38,10 @@
             },
             {
                 type: 'checkbox',
-                name: 'core',
-                message: '(4/6)Project dependencies spring Core',
-                bloc: 'starter',
+                name: 'starters',
+                message: '(4/6) select your (4/6)Project dependencies',
                 choices: [
+                    // Core
                     {
                         name: 'Security',
                         value: 'security'
@@ -57,14 +57,8 @@
                     {
                         name: 'Bitronix (JTA)',
                         value: 'bitronix'
-                    }
-                ]
-            },
-            {
-                type: 'checkbox',
-                name: 'starters',
-                message: '(4/6) select your starters',
-                choices: [
+                    },
+                    // Web
                     {
                         name: 'Jetty (Tomcat will be uninstalled)',
                         value: 'jetty'
@@ -132,23 +126,18 @@
             this.useSpock = props.useSpock;
 
             // here spring dependencies
-            this.core = props.core;
+            this.starters = props.starters;
 
             var hasStarter = function (starter) {
-                return props.starters ? props.starters.indexOf(starter) !== -1 : false;
-            };
-            var isInStarterBloc = function (starter) {
-                return props.bloc ? props.bloc.indexOf(starter) !== -1 : false;
+                return props.starters ? props.starters.indexOf(starter) !== -1 : true;
             };
 
             // Core options
-            this.security = isInStarterBloc('security');
-            this.aop = isInStarterBloc('aop');
-            this.atomikos = isInStarterBloc('atomikos');
-            this.bitronix = isInStarterBloc('bitronix');
+            this.security = hasStarter('security');
+            this.aop = hasStarter('aop');
+            this.atomikos = hasStarter('atomikos');
 
-            // Spring Starter
-            this.starters = props.starters;
+            this.bitronix = hasStarter('bitronix');
             this.jetty = hasStarter('jetty');
             this.actuator = hasStarter('actuator');
             this.aop = hasStarter('aop');

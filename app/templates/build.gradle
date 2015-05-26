@@ -17,12 +17,9 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 <% if (useSpock) { %>
     apply plugin: 'groovy'
-<%
-} else {
-%>
+<%} else {%>
     apply plugin: 'java'
-<%
-} %>
+<%} %>
 
 jar {
     applicationName = '<%= applicationName %>'
@@ -39,79 +36,49 @@ repositories {
 }
 
 dependencies {
-
     compile('com.google.guava:guava')
-
-    # Core dependencies
     <%if (security){%>
-        compile('org.springframework.boot:spring-boot-starter-security')
-    <%}%>
+    compile('org.springframework.boot:spring-boot-starter-security') <%}%>
      <%if (aop){%>
-        compile('org.springframework.boot:spring-boot-starter-aop')
-    <%}%>
+    compile('org.springframework.boot:spring-boot-starter-aop') <%}%>
     <%if (atomikos){%>
-        compile('org.springframework.boot:spring-boot-starter-jta-atomikos')
-    <%}%>
+    compile('org.springframework.boot:spring-boot-starter-jta-atomikos') <%}%>
     <%if (bitronix){%>
-        compile('org.springframework.boot:spring-boot-starter-jta-bitronix')
-    <%}%>
-
-     # Web dependencies
-
-
-    #########################
-    ##Old de
-
-    compile('org.springframework.boot:spring-boot-starter-web') <% if (jetty) {%>
-    {
-            exclude module: 'spring-boot-starter-tomcat'
-    }
-    <%
-    } %>
+    compile('org.springframework.boot:spring-boot-starter-jta-bitronix') <%}%>
+    compile('org.springframework.boot:spring-boot-starter-web') <% if (jetty) {%>{
+        exclude module: 'spring-boot-starter-tomcat'
+    } <%} %>
     <% if (actuator) {%>
-        compile('org.springframework.boot:spring-boot-starter-actuator') <%
-    } %>
+    compile('org.springframework.boot:spring-boot-starter-actuator') <%}%>
     <% if (batch) {%>
-        compile('org.springframework.boot:spring-boot-starter-batch') <%
-    } %>
+        compile('org.springframework.boot:spring-boot-starter-batch') <%} %>
     <% if (jdbc) {%>
-        compile('org.springframework.boot:spring-boot-starter-jdbc') <%
-    } %>
+        compile('org.springframework.boot:spring-boot-starter-jdbc') <%} %>
     <% if (jpa) {
-        %> compile('org.springframework.boot:spring-boot-starter-data-jpa') <%
-    } %>
+        %> compile('org.springframework.boot:spring-boot-starter-data-jpa') <%} %>
     <% if (hateoas) {%>
         compile('com.fasterxml.jackson.core:jackson-databind')
-        compile('org.springframework.hateoas:spring-hateoas') <%
-    } %>
+        compile('org.springframework.hateoas:spring-hateoas') <% } %>
     <% if (integration) {%>
-        compile('org.springframework.boot:spring-boot-starter-integration') <%
-    } %>
+        compile('org.springframework.boot:spring-boot-starter-integration') <% } %>
     <% if (logging) {%>
-        compile('org.springframework.boot:spring-boot-starter-logging') <%
-    } %>
+        compile('org.springframework.boot:spring-boot-starter-logging') <% } %>
     <% if (security) {
-        %> compile('org.springframework.boot:spring-boot-starter-security') <%
-    } %>
+        %> compile('org.springframework.boot:spring-boot-starter-security') <% } %>
     <% if (websocket) {%>
-        compile('org.springframework.boot:spring-boot-starter-websocket') <%
-    } %>
+        compile('org.springframework.boot:spring-boot-starter-websocket') <% } %>
     <% if (useSpock) {%>
         testCompile('org.codehaus.groovy:groovy-all')
-        testCompile('org.spockframework:spock-core')
-    <%
-    } %>
+        testCompile('org.spockframework:spock-core') <% } %>
 }
 
 dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-starter-parent:1.0.1.RELEASE'
-    }
+ imports {
+  mavenBom 'org.springframework.cloud:spring-cloud-starter-parent:1.0.1.RELEASE'
+ }
 }
 
 <% if (useWrapper) {%>
-    task(type: Wrapper) {
-        gradleVersion = '2.3'
-    }
-<%
-} %>
+task(type: Wrapper) {
+  gradleVersion = '2.3'
+} <%} %>
