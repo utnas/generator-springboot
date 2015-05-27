@@ -3,7 +3,7 @@ package <%= packageName %>.rest;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
-public class <%= UserRestLayer %> implements <%= IUserRestLayer %> {
+public class <%= RestInterfaceImpl %> implements <%= RestInterface %> {
 
     public UserRestLayer() {
     }

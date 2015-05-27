@@ -1,6 +1,6 @@
 package <%= packageName %>.rest;
 
-interface <%= IUserRestLayer %>{
+interface <%= RestInterface %>{
 
     Iterable<T> findAll();
 

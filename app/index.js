@@ -293,10 +293,4 @@
 
     };
 
-    var createPackage = function (builder, basePackage, packages) {
-        for(; i < packages.length; i++){
-            builder.mkdir(packages[i]);
-        }
-    }
-
 })();
