@@ -33,82 +33,42 @@ repositories {
 }
 
 dependencies {
-
-    // Google guava
     compile('com.google.guava:guava')
-
-    // Spring Core
     <%if (security){%>
-    compile('org.springframework.boot:spring-boot-starter-security') <%}%>
-     <%if (aop){%>
-    compile('org.springframework.boot:spring-boot-starter-aop') <%}%>
-    <%if (atomikos){%>
-    compile('org.springframework.boot:spring-boot-starter-jta-atomikos') <%}%>
-    <%if (bitronix){%>
-    compile('org.springframework.boot:spring-boot-starter-jta-bitronix') <%}%>
-
-    // Spring Web
-    <%if (web){%>
-    compile('org.springframework.boot:spring-boot-starter-web') <%}%>
-    <%if (websocket){%>
-    compile('org.springframework.boot:spring-boot-starter-websocket') <%}%>
-    <%if (ws){%>
-    compile('org.springframework.boot:spring-boot-starter-ws') <%}%>
-    <%if (jersey){%>
-    compile('org.springframework.boot:spring-boot-starter-jersey') <%}%>
-    <%if (vaadin){%>
-    compile('com.vaadin:vaadin-spring-boot-starter:1.0.0.beta3') <%}%>
-    <%if (rest){%>
-    compile('org.springframework.boot:spring-boot-starter-data-rest') <%}%>
-    <%if (hateoas){%>
-    compile('org.springframework.boot:spring-boot-starter-hateoas') <%}%>
-    <%if (mobile){%>
-    compile('org.springframework.boot:spring-boot-starter-mobile') <%}%>
-
-    // Data
-    <%if (jdbc){%>
-    compile('org.springframework.boot:spring-boot-starter-jdbc') <%}%>
-    <%if (jpa){%>
-    compile('org.springframework.boot:spring-boot-starter-data-jpa') <%}%>
-    <%if (mongodb){%>
-    compile('org.springframework.boot:spring-boot-starter-data-mongodb') <%}%>
-    <%if (redis){%>
-    compile('org.springframework.boot:spring-boot-starter-redis') <%}%>
-    <%if (gemfire){%>
-    compile('org.springframework.boot:spring-boot-starter-data-gemfire') <%}%>
-    <%if (solr){%>
-    compile('org.springframework.boot:spring-boot-starter-data-solr') <%}%>
-    <%if (elasticsearch){%>
-    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch') <%}%>
-
-    // I/O
-    <%if (batch){%>
-    compile('org.springframework.boot:spring-boot-starter-batch') <%}%>
-    <%if (integration){%>
-    compile('org.springframework.boot:spring-boot-starter-integration') <%}%>
-    <%if (amqp){%>
-    compile('org.springframework.boot:spring-boot-starter-amqp') <%}%>
-    <%if (mail){%>
-    compile('org.springframework.boot:spring-boot-starter-mail') <%}%>
-
-    // Ops
-    <%if (remoteshell){%>
-    compile('org.springframework.boot:spring-boot-starter-remote-shell') <%}%>
-    <%if (actuator){%>
-    compile('org.springframework.boot:spring-boot-starter-actuator') <%}%>
-
-    //Database
-    <%if (derby){%>
-    runtime('org.apache.derby:derby') <%}%>
-    <%if (hsqldb){%>
-    runtime('org.hsqldb:hsqldb') <%}%>
-    <%if (mysql){%>
-    runtime('mysql:mysql-connector-java') <%}%>
-    <%if (postgresql){%>
-    runtime('org.postgresql:postgresql:9.4-1201-jdbc41') <%}%>
-
-    // Spock
-    <% if (useSpock) {%>
+    compile('org.springframework.boot:spring-boot-starter-security')     <%}%> <%if (aop){%>
+    compile('org.springframework.boot:spring-boot-starter-aop')          <%}%> <%if (atomikos){%>
+    compile('org.springframework.boot:spring-boot-starter-jta-atomikos') <%}%> <%if (bitronix){%>
+    compile('org.springframework.boot:spring-boot-starter-jta-bitronix')
+    <%}%> <%if (web){%>
+    compile('org.springframework.boot:spring-boot-starter-web')          <%}%> <%if (websocket){%>
+    compile('org.springframework.boot:spring-boot-starter-websocket')    <%}%> <%if (ws){%>
+    compile('org.springframework.boot:spring-boot-starter-ws')           <%}%> <%if (jersey){%>
+    compile('org.springframework.boot:spring-boot-starter-jersey')       <%}%> <%if (vaadin){%>
+    compile('com.vaadin:vaadin-spring-boot-starter:1.0.0.beta3')         <%}%> <%if (rest){%>
+    compile('org.springframework.boot:spring-boot-starter-data-rest')    <%}%> <%if (hateoas){%>
+    compile('org.springframework.boot:spring-boot-starter-hateoas')      <%}%> <%if (mobile){%>
+    compile('org.springframework.boot:spring-boot-starter-mobile')
+    <%}%> <%if (jdbc){%>
+    compile('org.springframework.boot:spring-boot-starter-jdbc')         <%}%> <%if (jpa){%>
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')     <%}%> <%if (mongodb){%>
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb') <%}%> <%if (redis){%>
+    compile('org.springframework.boot:spring-boot-starter-redis')        <%}%> <%if (gemfire){%>
+    compile('org.springframework.boot:spring-boot-starter-data-gemfire') <%}%> <%if (solr){%>
+    compile('org.springframework.boot:spring-boot-starter-data-solr')    <%}%> <%if (elasticsearch){%>
+    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+    <%}%> <%if (batch){%>
+    compile('org.springframework.boot:spring-boot-starter-batch') <%}%> <%if (integration){%>
+    compile('org.springframework.boot:spring-boot-starter-integration')  <%}%> <%if (amqp){%>
+    compile('org.springframework.boot:spring-boot-starter-amqp')         <%}%> <%if (mail){%>
+    compile('org.springframework.boot:spring-boot-starter-mail')         <%}%> <%if (remoteshell){%>
+    compile('org.springframework.boot:spring-boot-starter-remote-shell')
+    <%}%> <%if (actuator){%>
+    compile('org.springframework.boot:spring-boot-starter-actuator')     <%}%> <%if (derby){%>
+    runtime('org.apache.derby:derby')       <%}%> <%if (hsqldb){%>
+    runtime('org.hsqldb:hsqldb')            <%}%> <%if (mysql){%>
+    runtime('mysql:mysql-connector-java')   <%}%> <%if (postgresql){%>
+    runtime('org.postgresql:postgresql:9.4-1201-jdbc41')
+    <%}%> <% if (useSpock) {%>
     testCompile('org.codehaus.groovy:groovy-all')
     testCompile('org.spockframework:spock-core') <% } %>
 }
