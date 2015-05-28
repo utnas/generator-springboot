@@ -19,6 +19,22 @@
         console.log(yosay('\nWelcome to the Java Spring Boot Generator\n\n'));
         var prompts = [
             {
+                type: 'checkbox',
+                name: 'ideChoice',
+                message: '(4/6) select your (4/6) Core project dependencies',
+                choices: [
+                    // Core
+                    {
+                        name: 'Jetbrain IntelliJ Idea',
+                        value: 'idea'
+                    },
+                    {
+                        name: 'Eclipse',
+                        value: 'eclipse'
+                    }
+                ]
+            },
+            {
                 type: 'string',
                 name: 'bootVersion',
                 message: '(1/6) What version of Spring Boot would you like to use?',
