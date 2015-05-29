@@ -22,19 +22,19 @@
             },
             {
                 type: 'string',
-                name: 'representation',
+                name: 'interfaceImplName',
                 message: '(2/4) Name for your representation class:',
-                default: 'MyThing'
+                default: 'RestInterfaceImpl'
             },
             {
                 type: 'string',
-                name: 'controllerName',
+                name: 'interfaceName',
                 message: '(3/4) Name for your controller:',
-                default: 'MyController'
+                default: 'RestInterface'
             },
             {
                 type: 'string',
-                name: 'controllerPath',
+                name: 'interfaceImplName',
                 message: '(4/4) Path to Controller:',
                 default: '/hello-world'
             }
@@ -43,8 +43,8 @@
         this.prompt(prompts, function (props) {
             this.packageName = props.packageName;
             this.representation = props.representation;
-            this.controllerName = props.controllerName;
-            this.controllerPath = props.controllerPath;
+            this.interfaceName = props.interfaceName;
+            this.interfaceImplName = props.interfaceImplName;
             cb();
         }.bind(this));
 
@@ -52,14 +52,14 @@
 
     RestGenerator.prototype.files = function app() {
         var packageFolder = this.packageName.replace(/\./g, '/');
-        var controllersDir = 'src/main/java/' + packageFolder + '/controller';
+        var controllersDir = 'src/main/java/' + packageFolder + '/rest';
         var domainsDir = 'src/main/java/' + packageFolder + '/domain';
 
         this.mkdir(controllersDir);
         this.mkdir(domainsDir);
 
-        this.template('Controller.java', controllersDir + '/' + this.controllerName + '.java');
-        this.template('Representation.java', domainsDir + '/' + this.representation + '.java');
+        this.template('RestInterface.java', controllersDir + '/' + this.interfaceName + '.java');
+        this.template('RestInterfaceImpl.java', domainsDir + '/' + this.representation + '.java');
 
         this.config.set('packageName', this.packageName);
     };
