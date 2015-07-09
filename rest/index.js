@@ -1,19 +1,17 @@
 (function () {
     "use strict";
 
-    var util = require('util');
-    var yeoman = require('yeoman-generator');
-
-    var RestGenerator = module.exports = function RestGenerator(args, options, config) {
+    var util = require('util'),
+        yeoman = require('yeoman-generator'), 
+        RestGenerator = module.exports = function RestGenerator(args, options, config) {
         yeoman.generators.Base.apply(this, arguments);
     };
 
     util.inherits(RestGenerator, yeoman.generators.Base);
 
     RestGenerator.prototype.askFor = function askFor() {
-        var cb = this.async();
-
-        var prompts = [
+        var cb = this.async(),
+            prompts = [
             {
                 type: 'string',
                 name: 'packageName',
@@ -51,9 +49,9 @@
     };
 
     RestGenerator.prototype.files = function app() {
-        var packageFolder = this.packageName.replace(/\./g, '/');
-        var controllersDir = 'src/main/java/' + packageFolder + '/rest';
-        var domainsDir = 'src/main/java/' + packageFolder + '/domain';
+        var packageFolder = this.packageName.replace(/\./g, '/'),
+            controllersDir = 'src/main/java/' + packageFolder + '/rest',
+            domainsDir = 'src/main/java/' + packageFolder + '/domain';
 
         this.mkdir(controllersDir);
         this.mkdir(domainsDir);
